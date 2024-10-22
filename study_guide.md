@@ -13,6 +13,8 @@ binary tree is the linked list
 graphs are an extention of binary tree
 
 Easty leetcode difficulty
+open ended solution for assessment problem
+
 ```js
 /*
 This interview will assess your understanding of Data Structures and Algorithms, with a particular focus on problem-solving skills. Please prepare thoroughly using this study guide. Refer to the course policy for information on retakes.
