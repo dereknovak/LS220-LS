@@ -1,6 +1,7 @@
 /* 
 
 10:52 // 12:10 (incomplete... 3 failed test cases. Ran out of time and had to go to work)
+- Debugged after work. Took about 10 mins.
 
 PROBLEM
 I: An array of numbers, representing orders represented by volume of the order
@@ -105,29 +106,45 @@ isValidCapacity(orderVolumes, capacity(mid), maxTrips)
     - If totalTrips > maxTrips, return false
 
 - Return true
+
+*** REFACTOR ***
+[3, 2, 5, 8, 4] / 11
+          ar
+
+- sum starts at 0
+- When sum is reached
+    - Increment totalTrips
+    - If totalTrips > maxTrips
+        - Return false
+    - move anchor to runner
+    - Reset sum
+- Increment totalTrips 1 more time afterwards
+
+sum = 18
 */
 
 function findTruckCapacity(orderVolumes, maxTrips) {
   function isValidCapacity(capacity) {
     let anchor = 0;
-    let runner = 1;
-    let totalTrips = 1;
-    let sum = orderVolumes[anchor];
+    let runner = 0;
+    let totalTrips = 0;
+    let sum = 0;
 
     while (runner < orderVolumes.length) {
       sum += orderVolumes[runner];
 
       if (sum > capacity) {
-        anchor = runner;
-        sum = orderVolumes[anchor];
+        anchor = runner + 1;
+        sum = 0;
         totalTrips++;
+        if (totalTrips > maxTrips) return false;
+      } else {
+        runner++;
       }
 
-      runner++;
-      if (totalTrips > maxTrips) return false;
     }
 
-    return true;
+    return totalTrips + 1 <= maxTrips;
   }
 
   const sum = orderVolumes.reduce((a, b) => a + b);
@@ -137,7 +154,7 @@ function findTruckCapacity(orderVolumes, maxTrips) {
 
   while (left <= right) {
     let mid = Math.floor((left + right) / 2);
-    // console.log(mid);
+
     if (isValidCapacity(mid)) {
       minCapacity = Math.min(mid);
       right = mid - 1;
