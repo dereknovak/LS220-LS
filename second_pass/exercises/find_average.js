@@ -3,6 +3,9 @@
 9:45 // 10:20
 - Embarassing performance
     - Got hung up on tracking the indicies of window. Spent a lot of time debugging.
+- Need to combine the window setup/execution steps
+    - If runner > k - 1, execute
+        - This will loop only the setup until window is established
 
 PROBLEM
 I: An array of numbers
