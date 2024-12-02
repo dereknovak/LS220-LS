@@ -326,3 +326,62 @@ console.log(findProductPrice([[15, 25, 35], [45, 55, 65], [75, 85, 95]], 5) === 
 
 // All test cases should return true.
 */
+
+// Study with Daniel
+
+## Notes from my failed attempt
+- More test cases than 216
+- More intentional with test cases
+    - Think more about what each test case is accomplishing
+- Come at it from more of a top down approach
+- Think of eliminating things rather than moving a pointer
+    - Eliminate everything mid onwards
+- Use a binary search template
+    - Has never had to modify
+    - Modify your understanding of the problem rather than modifying the binary search
+- Spend time determing things that would break the algo that you made
+- DOn't write out algo for a simple binary
+
+- Prioritize possible approaches in terms of likelihood
+- Two Pointers
+    - Start/End pair it down
+    - Clear binary choice
+    - Think about what you can eliminate
+
+## Daniel's bsearch templates
+
+```js
+function bsearchMin(arr, condition, left = 0, right = arr.length - 1) {
+  while (left < right) {
+    let mid = left + Math.floor((right - left) / 2);
+
+    if (condition(mid)) {
+      right = mid;
+    } else {
+      left = mid + 1;
+    }
+  }
+
+// at this point, right is the minimal index which satisfies the condition
+// or the last element
+  return right;
+}
+idx = bsearchMin(nums, i => nums[i] >= target)
+if (nums[idx] === target) return idx
+return -1;
+
+function bsearchMax(arr, condition, left = 0, right = arr.length - 1) {
+
+  while (left < right) {
+    let mid = left + Math.ceil((right - left) / 2);
+
+    if (condition(mid)) {
+      right = mid;
+    } else {
+      left = mid + 1;
+    }
+  }
+
+  return left;
+}
+```
