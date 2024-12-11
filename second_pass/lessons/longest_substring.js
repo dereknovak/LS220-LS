@@ -138,6 +138,9 @@ console.log(longestSubstringLength("hello world") === 5);
 // Uppercase
 console.log(longestSubstringLength("hElLo WoRlD") === 5);
 
+// Empty
+console.log(longestSubstringLength("") === 0);
+
 // Additional Test Cases
 console.log(longestSubstringLength("dvdf") === 3);
 console.log(longestSubstringLength("tmmzuxt") === 5);
