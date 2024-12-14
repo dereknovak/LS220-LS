@@ -30,6 +30,7 @@ const grid = [
 - Solved in about 25 minutes
 - Looked at walkthrough for literally 1 second to realize I just fill in each box 1 row at a time, 1 col at a time
 - Otherwise, solved myself
+- Did not use PEDAC. Worked through PEDAC on chaos_top.js
 - My solution is a bit cleaner than the provided one
     - The `if` statement makes this possible
 */
